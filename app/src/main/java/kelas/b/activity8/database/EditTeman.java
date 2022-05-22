@@ -1,4 +1,4 @@
-package kelas.b.activity8;
+package kelas.b.activity8.database;
 
 import kelas.b.activity8.R;
 import android.content.Intent;
@@ -27,7 +27,7 @@ import java.util.Map;
 
 import kelas.b.activity8.MainActivity;
 
-public class editTeman extends AppCompatActivity {
+public class EditTeman extends AppCompatActivity {
     TextView idText;
     EditText edNama, edTelpon;
     Button editBtn;
@@ -35,7 +35,7 @@ public class editTeman extends AppCompatActivity {
     int sukses;
 
     private static String url_update = "http://10.0.2.2/umyTI/updatetm.php";
-    private static final String TAG = editTeman.class.getSimpleName();
+    private static final String TAG = EditTeman.class.getSimpleName();
     private static final String TAG_SUCCESS = "success";
 
     @Override
@@ -79,9 +79,9 @@ public class editTeman extends AppCompatActivity {
                     JSONObject jObj = new JSONObject(response);
                     sukses = jObj.getInt(TAG_SUCCESS);
                     if (sukses == 1) {
-                        Toast.makeText(editTeman.this, "SUkses mengedit data", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditTeman.this, "SUkses mengedit data", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(editTeman.this, "gagal", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditTeman.this, "gagal", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -91,9 +91,9 @@ public class editTeman extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Error :"+ error.getMessage());
-                Toast.makeText(editTeman.this,"Gagal Edit data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditTeman.this,"Gagal Edit data", Toast.LENGTH_SHORT).show();
             }
-        })
+    })
         {
             @Override
             protected Map<String,String> getParams(){
